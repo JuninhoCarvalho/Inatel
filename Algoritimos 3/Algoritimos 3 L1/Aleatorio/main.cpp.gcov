@@ -1,0 +1,53 @@
+        -:    0:Source:main.cpp
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:2
+        -:    0:Programs:1
+        -:    1:#include <iostream>
+        -:    2:#include <cstdlib>
+        -:    3:#include <climits>
+        -:    4:
+        -:    5:using namespace std;
+        -:    6:
+        2:    7:int main(){
+        -:    8:	int n; // numero de vertices
+        -:    9:	int dist[3][3]; // matriz de distancia 
+        2:   10:	n = 3;
+        -:   11:	
+        -:   12:	/*Gerando tabela aleatoria*/
+        8:   13:	for(int i=0;i<n;i++)
+        -:   14:	{
+       18:   15:		for(int j=i; j<n; j++){
+       12:   16:			if(i==j) 
+        6:   17:				dist[i][j] = dist[j][i] = 0;
+        -:   18:			else 
+        6:   19:				dist[i][j] = dist[j][i] = rand()%10 + 1; //vou querer numeros de 1 a 9
+        -:   20:		}
+        -:   21:	}
+        -:   22:	
+        -:   23:	/*mostrando a matriz de adjacencia*/
+        8:   24:	for(int i=0;i<n;i++)
+        -:   25:	{
+       24:   26:		for(int j=0; j<n; j++){
+       18:   27:			cout <<dist[i][j] << " ";
+        -:   28:		}
+        6:   29:		cout << endl;
+        -:   30:	}
+        -:   31:	
+        -:   32:	/*floyd warshall*/
+        -:   33:	// Analiso se o caminho de i->k->j eh mais vantajoso, se for eu atualizo a distancia  
+        8:   34:	for(int k = 0; k < n; k++)
+       24:   35:		for(int i = 0; i < n; i++)
+       72:   36:			for(int j = 0; j < n; j++)
+       54:   37:				dist[i][j] = min(dist[i][j], dist[i][k]+dist[k][j]);
+        -:   38:	
+        2:   39:	cout << dist[0][n-1] << endl; // mostra a distancia do 0 para o n-1
+        -:   40:	
+        2:   41:	return 0;
+        6:   42:}
+        -:   43:
+        -:   44:
+        -:   45:
+        -:   46:
+        -:   47:
+        -:   48:

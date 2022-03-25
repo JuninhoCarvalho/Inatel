@@ -1,0 +1,15 @@
+Funcionario
+Juninho
+19
+123.913.183-92
+Chefe
+Funcionario
+Pivoto
+19
+   .   .   -  
+Escolha uma opção...
+Funcionario
+Juninho
+19
+123.123.123-12
+Estagiário
